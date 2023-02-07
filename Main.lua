@@ -2,10 +2,10 @@ return function(Release, Path, Branch)
     getgenv().Import = function(Module)
         local Script
         
-        print(Path:split("/")[1])
-        print(Path, Branch)
+        
+        print(Path:sub(Path:find("/"), #Path))
         if not Release then
-            Script = readfile(("%s/Modules/%s.lua"):format(Path:split("/")[1], Module))
+            Script = readfile(("%s/Modules/%s.lua"):format(Path:sub(Path:find("/"), #Path), Module))
         end
 
         Script = Script or game:HttpGet(("https://raw.githubusercontent.com/%s/%s/Modules/%s.lua"):format(Path, Branch, Module))
