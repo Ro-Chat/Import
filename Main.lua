@@ -2,8 +2,6 @@ return function(Release, Path, Branch)
     getgenv().Import = function(Module)
         local Script
         
-        
-        print(Path:sub(Path:find("/"), #Path))
         if not Release then
             Script = readfile(("%s/Modules/%s.lua"):format(Path:sub(Path:find("/"), #Path), Module))
         end
