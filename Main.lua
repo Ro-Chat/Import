@@ -3,7 +3,7 @@ return function(Release, Path, Branch)
         local Script
 
         if not Release then
-            Script = readfile(("%s/Modules/%s.lua"):format(Path, Module))
+            Script = readfile(("%s/Modules/%s.lua"):format(Path:split("/")[1], Module))
         end
 
         Script = Script or game:HttpGet(("https://raw.githubusercontent.com/%s/%s/Modules/%s.lua"):format(Path, Branch, Module))
