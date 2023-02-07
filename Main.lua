@@ -8,12 +8,12 @@ return function(Release, Path, Branch)
 
         Script = Script or game:HttpGet(("https://raw.githubusercontent.com/%s/%s/Modules/%s.lua"):format(Path, Branch, Module))
 
-        local Status, Result = pcall(loadstring(Script))
+        local Status, Result = pcall(loadstring, Script)
 
         if not Status then
             error(("Module %s:\n %s"):format(Module, Result))
+        else 
+            return Result()
         end
-
-        return Result
     end
 end
